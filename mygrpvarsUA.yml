@@ -1,0 +1,15 @@
+---
+- hosts: webservers
+  become:  yes
+  tasks:
+  - name: install java8 on ubuntu node
+    apt: 
+      name: "{{myjavaonubuntu}}"
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: install java8 on amazon node
+    yum:
+      name: "{{myjavaonamazon}}"
+      state: present
+    when: ansible_os_family == "RedHat"
