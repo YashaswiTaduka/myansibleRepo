@@ -1,0 +1,11 @@
+---
+- hosts: websrvers
+  become: yes
+  tasks:
+  - name: To know the host name
+    command: hostname -f
+    register: myresult
+
+  - name: To display the host name
+    debug:
+     msg: "{{myresult}}"
