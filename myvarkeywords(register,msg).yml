@@ -1,5 +1,5 @@
 ---
-- hosts: websrvers
+- hosts: webservers
   become: yes
   tasks:
   - name: To know the host name
