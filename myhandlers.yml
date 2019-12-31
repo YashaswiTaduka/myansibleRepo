@@ -1,0 +1,20 @@
+---
+- hosts: ubuntuos
+  become: yes
+  tasks:
+  - name: to install apache2 on ubuntu node
+    apt:
+      name: apache2
+      state: started
+    notify: startwebserver
+
+  - name: to copy index file on all nodes
+    template:
+      src: myindex.j2
+      dest: /var/www/html/index.html
+    notify:  startwebserver
+
+  - name: startwebserver
+    service:
+      name: apache2
+      state: restarted
