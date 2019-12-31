@@ -1,7 +1,6 @@
 ---
 - hosts: amazonos
   become: yes
-  gather_facts: no
   tasks:
   - name: install git, tree, wget on nodes
     yum:
