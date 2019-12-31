@@ -1,0 +1,16 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+  - name: install jdk11 on ubuntu node
+    apt:
+     name: "{{myjavaonubuntu}}"
+     state: present
+    when: ansible_os_family == "Debian"
+
+  - name: install jdk8 on amazon node
+    apt: 
+     name: "{{myjavaonamazon}}"
+     state: present
+    when: ansible_os_family == "RedHat"
+    
