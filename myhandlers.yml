@@ -6,7 +6,7 @@
     apt:
       name: apache2
       state: present
-    
+    notify: startwebserver
 
   - name: to copy index file on all nodes
     template:
