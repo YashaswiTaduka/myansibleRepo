@@ -9,8 +9,7 @@
     when: ansible_os_family == "Debian"
 
   - name: install jdk8 on amazon node
-    apt: 
+    yum: 
      name: "{{myjavaonamazon}}"
      state: present
     when: ansible_os_family == "RedHat"
-    
