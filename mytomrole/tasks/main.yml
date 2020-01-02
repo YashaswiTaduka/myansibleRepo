@@ -24,3 +24,9 @@
     src: templates/mytomuser.j2
     dest: /usr/share/tomcat/conf/tomcat-users.xml
   notify: restarttomcat
+
+- name:  to deploy ravi java file into tomcat-admin-webapps
+  get_url:
+   url: https://raviwebapp.s3.amazonaws.com/raviLogin-1.0.war
+   dest: /usr/share/tomcat/webapps/raviLogin-1.0.war
+   force_basic_auth: yes
